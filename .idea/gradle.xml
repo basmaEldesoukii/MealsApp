@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -12,7 +13,7 @@
             <option value="$PROJECT_DIR$/categories_list" />
             <option value="$PROJECT_DIR$/category_item" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/meals_home" />
+            <option value="$PROJECT_DIR$/homepage" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

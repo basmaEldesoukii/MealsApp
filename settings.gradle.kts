@@ -16,6 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "MealsApp"
 include(":app")
 include(":common")
-include(":homepage")
 include(":categories_list")
 include(":category_item")
+include(":homepage")
