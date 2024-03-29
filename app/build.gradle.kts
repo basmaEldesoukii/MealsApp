@@ -24,6 +24,9 @@ android {
     }
 
     buildTypes {
+        all {
+            buildConfigField("String", "MEALS_BASE_URL", "\"${project.findProperty("MEALS_BASE_URL")}\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
