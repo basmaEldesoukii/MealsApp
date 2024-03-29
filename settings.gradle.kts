@@ -17,3 +17,4 @@ rootProject.name = "MealsApp"
 include(":app")
 include(":common")
 include(":meals_home")
+include(":categories_list")
