@@ -5,8 +5,8 @@ import javax.inject.Inject
 class MealDetailsLocalDataSourceImp @Inject constructor(
     private val mealDetailsDao: MealDetailsDao
 ): MealDetailsLocalDataSourceContract {
-    override suspend fun getMealDetailsFromDataBase(mealId: Int): MealDetailsLocalEntity {
-        return mealDetailsDao.getMealDetails(mealId)
+    override suspend fun getMealDetailsByIDFromDataBase(mealId: Int): MealDetailsLocalEntity {
+        return mealDetailsDao.getMealDetailsByID(mealId)
     }
 
     override suspend fun insertMealDetails(meal: MealDetailsLocalEntity): Long {
