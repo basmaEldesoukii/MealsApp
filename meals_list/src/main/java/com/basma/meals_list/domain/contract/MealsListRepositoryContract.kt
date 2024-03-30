@@ -5,5 +5,5 @@ import com.basma.meals_list.domain.entity.Meal
 import kotlinx.coroutines.flow.Flow
 
 interface MealsListRepositoryContract {
-    suspend fun getMealsList(): Flow<Resource<List<Meal>>>
+    suspend fun getMealsList(categoryType: String): Flow<Resource<List<Meal>>>
 }
