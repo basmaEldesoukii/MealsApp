@@ -15,12 +15,18 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.basma.meal_details.presentation.component.MealDetailsSection
+import com.basma.meal_details.presentation.viewmodel.MealDetailsViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MealDetailsScreen() {
+fun MealDetailsScreen(
+    navController: NavController,
+    viewModel: MealDetailsViewModel,
+    mealId: Int
+) {
     Scaffold(
         topBar = {
             TopAppBar(

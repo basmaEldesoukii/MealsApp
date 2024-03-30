@@ -3,46 +3,28 @@ package com.basma.mealsapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.activity.viewModels
+import com.basma.homepage.presentation.viewmodel.HomePageViewModel
+import com.basma.meal_details.presentation.viewmodel.MealDetailsViewModel
+import com.basma.meals_list.presentation.viewmodel.MealsListViewModel
 import com.basma.mealsapp.ui.theme.MealsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val homePageViewModel: HomePageViewModel by viewModels()
+    private val mealsListViewModel: MealsListViewModel by viewModels()
+    private val mealsDetailsViewModel: MealDetailsViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MealsAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                AppNavigation(
+                    homePageViewModel,
+                    mealsListViewModel,
+                    mealsDetailsViewModel
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MealsAppTheme {
-        Greeting("Android")
     }
 }
