@@ -30,7 +30,7 @@ class MealsListRepositoryImp @Inject constructor(
                 ex.printStackTrace()
                 // If remote request fails, get data from LocalDataSource
                 try {
-                    val localData = localDataSource.getMealsListFromDataBase(categoryType)
+                    val localData = localDataSource.getMealsListFromDataBase()
                     emit(Resource.Success(mealsListDataMapper.toList(localData)))
                 } catch (ex1: Exception) {
                     // Emit error

@@ -3,8 +3,8 @@ package com.basma.meals_list.data.local
 class MealsListLocalDataSourceImp(
     private val mealsListDao: MealsListDao
 ): MealsListLocalDataSourceContract {
-    override suspend fun getMealsListFromDataBase(categoryType: String): List<MealLocalEntity> {
-        return mealsListDao.getMealsList(categoryType)
+    override suspend fun getMealsListFromDataBase(): List<MealLocalEntity> {
+        return mealsListDao.getMealsList()
     }
 
     override suspend fun insertMealsList(mealsList: List<MealLocalEntity>): List<Long> {
