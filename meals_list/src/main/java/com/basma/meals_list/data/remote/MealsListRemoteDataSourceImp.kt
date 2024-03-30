@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class MealsListRemoteDataSourceImp @Inject constructor(
     private val remoteServices: MealsListRemoteServices
-): MealsListRemoteDataSourceContract {
+) : MealsListRemoteDataSourceContract {
     override suspend fun getMealsList(categoryType: String): MealsListDataModel {
         return remoteServices.getMealsList(categoryType)
     }

@@ -10,6 +10,6 @@ import androidx.room.TypeConverters
     exportSchema = false
 )
 @TypeConverters(DataConverter::class)
-abstract class HomePageLocalDatabase: RoomDatabase() {
+abstract class HomePageLocalDatabase : RoomDatabase() {
     abstract fun homePageDao(): HomePageDao
 }

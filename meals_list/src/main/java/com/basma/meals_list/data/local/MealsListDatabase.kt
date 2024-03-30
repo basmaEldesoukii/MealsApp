@@ -8,6 +8,6 @@ import androidx.room.RoomDatabase
     version = 1,
     exportSchema = false
 )
-abstract class MealsListDatabase: RoomDatabase() {
+abstract class MealsListDatabase : RoomDatabase() {
     abstract fun mealsListDao(): MealsListDao
 }

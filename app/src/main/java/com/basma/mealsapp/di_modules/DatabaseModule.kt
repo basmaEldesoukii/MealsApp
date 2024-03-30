@@ -23,6 +23,7 @@ object DatabaseModule {
             .fallbackToDestructiveMigration()
             .build()
     }
+
     @Provides
     @Singleton
     fun provideHomePageDao(homePageLocalDataBase: HomePageLocalDatabase) =
@@ -36,6 +37,7 @@ object DatabaseModule {
             .fallbackToDestructiveMigration()
             .build()
     }
+
     @Provides
     @Singleton
     fun provideMealsListDao(mealsListDataBase: MealsListDatabase) =

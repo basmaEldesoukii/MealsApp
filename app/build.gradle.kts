@@ -25,8 +25,16 @@ android {
 
     buildTypes {
         all {
-            buildConfigField("String", "HOMEPAGE_BASE_URL", "\"${project.findProperty("HOMEPAGE_BASE_URL")}\"")
-            buildConfigField("String", "MEALS_BASE_URL", "\"${project.findProperty("MEALS_BASE_URL")}\"")
+            buildConfigField(
+                "String",
+                "HOMEPAGE_BASE_URL",
+                "\"${project.findProperty("HOMEPAGE_BASE_URL")}\""
+            )
+            buildConfigField(
+                "String",
+                "MEALS_BASE_URL",
+                "\"${project.findProperty("MEALS_BASE_URL")}\""
+            )
         }
         release {
             isMinifyEnabled = false
@@ -80,12 +88,12 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     //okhttp
-    implementation ("com.squareup.okhttp3:okhttp:4.11.0")
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.11.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     //RoomDB
     implementation("androidx.room:room-runtime:2.6.1")
@@ -98,7 +106,7 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Navigation
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation ("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 }

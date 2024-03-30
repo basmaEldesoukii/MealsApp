@@ -22,14 +22,14 @@ import coil.compose.AsyncImage
 @Composable
 fun CategoryItem() {
     Card(
-    modifier = Modifier
-    .padding(8.dp)
-    .width(120.dp)
-    .height(120.dp),
-    shape = RoundedCornerShape(8.dp),
-    elevation = CardDefaults.cardElevation(
-        defaultElevation = 4.dp
-    )
+        modifier = Modifier
+            .padding(8.dp)
+            .width(120.dp)
+            .height(120.dp),
+        shape = RoundedCornerShape(8.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 4.dp
+        )
     ) {
         Box {
             AsyncImage(

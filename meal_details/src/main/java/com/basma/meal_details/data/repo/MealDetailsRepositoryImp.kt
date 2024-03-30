@@ -15,7 +15,7 @@ class MealDetailsRepositoryImp @Inject constructor(
     private val localDataSource: MealDetailsLocalDataSourceContract,
     private val remoteDataSource: MealDetailsRemoteDataSourceContract,
     private val mealDetailsDetailsDataMapper: Mapper<MealDetails, MealDetailsLocalEntity>
-): MealDetailsRepositoryContract {
+) : MealDetailsRepositoryContract {
     override suspend fun getMealDetails(mealId: Int): Flow<Resource<MealDetails>> {
         return flow {
             try {

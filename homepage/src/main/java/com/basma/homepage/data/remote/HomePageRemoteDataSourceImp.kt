@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class HomePageRemoteDataSourceImp @Inject constructor(
     private val remoteServices: HomePageRemoteServices
-): HomePageRemoteDataSourceContract {
+) : HomePageRemoteDataSourceContract {
     override suspend fun getHomePageData(): HomePageDataModel {
         return remoteServices.getHomePageData()
     }

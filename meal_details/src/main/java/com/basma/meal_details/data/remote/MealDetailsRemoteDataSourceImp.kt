@@ -5,7 +5,7 @@ import javax.inject.Inject
 
 class MealDetailsRemoteDataSourceImp @Inject constructor(
     private val remoteServices: MealDetailsRemoteServices
-):MealDetailsRemoteDataSourceContract {
+) : MealDetailsRemoteDataSourceContract {
     override suspend fun getMealDetails(mealId: Int): MealDetailsDataModel {
         return remoteServices.getMealDetails(mealId)
     }

@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "MealsListTable")
-data class MealLocalEntity (
+data class MealLocalEntity(
     @PrimaryKey
     val idMeal: String,
     val strMeal: String,
