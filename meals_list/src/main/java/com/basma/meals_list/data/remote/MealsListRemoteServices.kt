@@ -3,10 +3,10 @@ package com.basma.meals_list.data.remote
 import com.basma.meals_list.domain.entity.MealsListDataModel
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MealsListRemoteServices {
-    @GET("filter.php?c={category_type}")
-    suspend fun getMealsList(
-        @Path("category_type") categoryType: String
+    @GET("filter.php")
+    suspend fun getMealsList( @Query("c") categoryType: String
     ): MealsListDataModel
 }

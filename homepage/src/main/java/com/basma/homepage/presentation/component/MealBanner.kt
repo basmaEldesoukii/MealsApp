@@ -26,7 +26,7 @@ fun MealBanner(dataItem: DynamicCollectionViewModel) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp),
+            .height(100.dp),
         shape = RoundedCornerShape(8.dp),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp

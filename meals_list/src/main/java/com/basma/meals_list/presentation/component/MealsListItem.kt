@@ -19,9 +19,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.basma.meals_list.domain.entity.Meal
 
 @Composable
-fun MealsListItem() {
+fun MealsListItem(meal: Meal) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -35,22 +36,16 @@ fun MealsListItem() {
             modifier = Modifier.padding(16.dp)
         ) {
             AsyncImage(
-                model = "item.imageResource",
-                contentDescription = "Item Image",
+                model = meal.strMealThumb,
+                contentDescription = meal.idMeal,
                 modifier = Modifier.size(64.dp)
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column {
                 Text(
-                    text = "item.title",
+                    text = meal.strMeal,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = "item.description",
-                    fontSize = 14.sp,
-                    color = Color.Gray
                 )
             }
         }

@@ -2,17 +2,19 @@ package com.basma.meals_list.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
+import com.basma.meals_list.domain.entity.Meal
 
 @Composable
-fun MealsListSection() {
+fun MealsListSection(meals: List<Meal>, navController: NavController) {
     LazyColumn(
         modifier = Modifier.fillMaxWidth(),
     ) {
-        //TODO add mealsList
-        /*items(meals) { meal ->
-            MealsListItem()
-        }*/
+        items(meals) { meal ->
+            MealsListItem(meal)
+        }
     }
 }

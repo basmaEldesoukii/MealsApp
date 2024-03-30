@@ -15,11 +15,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.basma.common.ui.ErrorComponent
+import com.basma.common.ui.ProgressComponent
 import com.basma.meals_list.presentation.component.CategoryBanner
 import com.basma.meals_list.presentation.component.MealsListSection
+import com.basma.meals_list.presentation.viewmodel.MealsListContract
 import com.basma.meals_list.presentation.viewmodel.MealsListViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -30,12 +35,15 @@ fun MealsListScreen(
     viewModel: MealsListViewModel,
     categoryType: String
 ) {
+    viewModel.setIntent(MealsListContract.MealsListIntent.OnFetchMealsListData(categoryType))
+    val currentState by viewModel.uiState.collectAsState()
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("") },
+                title = { Text("Top categories") },
                 navigationIcon = {
-                    IconButton(onClick = { /*navController.popBackStack()*/ }) {
+                    IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Filled.ArrowBack, contentDescription = "Back to homepage")
                     }
                 }
@@ -47,9 +55,23 @@ fun MealsListScreen(
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            CategoryBanner()
-            Spacer(modifier = Modifier.height(16.dp))
-            MealsListSection()
+            when (val state = currentState.mealsListState) {
+                is MealsListContract.MealsListDataState.Loading -> {
+                    ProgressComponent()
+                }
+
+                is MealsListContract.MealsListDataState.Success -> {
+                    val mealsList = state.mealsList
+                    Spacer(modifier = Modifier.height(52.dp))
+                    CategoryBanner(categoryType)
+                    Spacer(modifier = Modifier.height(12.dp))
+                    MealsListSection(meals = mealsList, navController)
+                }
+
+                is MealsListContract.MealsListDataState.Error -> {
+                    ErrorComponent(message = state.errorMsg.toString())
+                }
+            }
         }
     }
 }

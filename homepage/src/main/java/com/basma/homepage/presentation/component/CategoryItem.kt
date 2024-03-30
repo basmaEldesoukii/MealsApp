@@ -1,6 +1,7 @@
 package com.basma.homepage.presentation.component
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -21,12 +22,13 @@ import coil.compose.AsyncImage
 import com.basma.homepage.domain.entity.Category
 
 @Composable
-fun CategoryItem(category: Category) {
+fun CategoryItem(category: Category, onCategoryClick: () -> Unit) {
     Card(
         modifier = Modifier
             .padding(4.dp)
             .width(95.dp)
-            .height(125.dp),
+            .height(125.dp)
+            .clickable { onCategoryClick() },
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(1.dp, Color.LightGray),
         elevation = CardDefaults.cardElevation(

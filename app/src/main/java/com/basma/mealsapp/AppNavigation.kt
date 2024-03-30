@@ -79,7 +79,7 @@ object Navigation {
 
     object Routes {
         const val HOME_PAGE = "home_page"
-        const val MEALS_LIST = "meals_list"
+        const val MEALS_LIST = "meals_list/{$CATEGORY_TYPE}"
         const val MEAL_DETAILS = "meal_details/{$MEAL_ID}"
     }
 
