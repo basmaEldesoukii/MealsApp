@@ -5,14 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "MealDetailsTable")
 data class MealDetailsLocalEntity (
-    val dateModified: Any,
     @PrimaryKey
     val idMeal: String,
     val strArea: String,
     val strCategory: String,
-    val strCreativeCommonsConfirmed: Any,
-    val strDrinkAlternate: Any,
-    val strImageSource: Any,
     val strIngredient1: String,
     val strIngredient10: String,
     val strIngredient11: String,
@@ -20,12 +16,7 @@ data class MealDetailsLocalEntity (
     val strIngredient13: String,
     val strIngredient14: String,
     val strIngredient15: String,
-    val strIngredient16: Any,
-    val strIngredient17: Any,
-    val strIngredient18: Any,
-    val strIngredient19: Any,
     val strIngredient2: String,
-    val strIngredient20: Any,
     val strIngredient3: String,
     val strIngredient4: String,
     val strIngredient5: String,
@@ -43,12 +34,7 @@ data class MealDetailsLocalEntity (
     val strMeasure13: String,
     val strMeasure14: String,
     val strMeasure15: String,
-    val strMeasure16: Any,
-    val strMeasure17: Any,
-    val strMeasure18: Any,
-    val strMeasure19: Any,
     val strMeasure2: String,
-    val strMeasure20: Any,
     val strMeasure3: String,
     val strMeasure4: String,
     val strMeasure5: String,
@@ -56,7 +42,6 @@ data class MealDetailsLocalEntity (
     val strMeasure7: String,
     val strMeasure8: String,
     val strMeasure9: String,
-    val strSource: Any,
     val strTags: String,
     val strYoutube: String
 )
