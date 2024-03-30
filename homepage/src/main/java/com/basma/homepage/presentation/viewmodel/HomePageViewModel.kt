@@ -67,7 +67,7 @@ class HomePageViewModel @Inject constructor(
         }
     }
 
-    private fun setSelectedCategory(category: Category){
+    private fun setSelectedCategory(category: Category) {
         setState { copy(selectedCategory = category) }
     }
 }

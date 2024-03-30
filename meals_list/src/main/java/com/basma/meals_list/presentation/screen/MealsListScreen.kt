@@ -41,7 +41,7 @@ fun MealsListScreen(
                 }
             )
         }
-    ){
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxSize()

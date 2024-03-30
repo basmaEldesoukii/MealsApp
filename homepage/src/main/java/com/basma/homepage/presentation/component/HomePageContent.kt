@@ -13,9 +13,9 @@ import com.basma.homepage.domain.entity.HomePageDataType
 @Composable
 fun HomePageContent(data: Data, navController: NavController) {
     LazyColumn(
-    modifier = Modifier
-        .fillMaxSize()
-        .padding(16.dp)
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
     ) {
         item {
             data.DynamicCollectionViewModel.firstOrNull { it.Type == HomePageDataType.MOTDY }
@@ -31,18 +31,21 @@ fun HomePageContent(data: Data, navController: NavController) {
                         CategoriesSection(categories = dataItem.Categories)
                     }
                 }
+
                 HomePageDataType.Product -> {
                     item {
                         TitleHeader(title = dataItem.Title)
                         MealsSection(meals = dataItem.Meals)
                     }
                 }
+
                 HomePageDataType.Ingredients -> {
                     item {
                         TitleHeader(title = dataItem.Title)
                         IngredientsSection(ingredients = dataItem.Ingredients)
                     }
                 }
+
                 HomePageDataType.Announcement -> {
                     item {
                         TitleHeader(title = dataItem.Title)

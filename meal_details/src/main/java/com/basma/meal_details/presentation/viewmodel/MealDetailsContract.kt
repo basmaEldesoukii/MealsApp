@@ -18,6 +18,7 @@ class MealDetailsContract {
         data class Success(
             val meal: MealDetails
         ) : MealDetailsDataState()
+
         data class Error(val errorMsg: String?) : MealDetailsDataState()
     }
 }
