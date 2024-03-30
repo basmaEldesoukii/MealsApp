@@ -28,7 +28,7 @@ class MealDetailsRepositoryImp(
                 ex.printStackTrace()
                 // If remote request fails, get data from LocalDataSource
                 try {
-                    val localData = localDataSource.getMealDetailsFromDataBase()
+                    val localData = localDataSource.getMealDetailsFromDataBase(mealId)
                     emit(Resource.Success(mealDetailsDataMapper.to(localData)))
                 } catch (ex1: Exception) {
                     // Emit error
