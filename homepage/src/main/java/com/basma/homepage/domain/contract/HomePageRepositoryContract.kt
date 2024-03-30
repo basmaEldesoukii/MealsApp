@@ -1,7 +1,7 @@
-package com.basma.homepage.data.contract
+package com.basma.homepage.domain.contract
 
 import com.basma.common.utils.Resource
-import com.basma.homepage.data.entity.Data
+import com.basma.homepage.domain.entity.Data
 import kotlinx.coroutines.flow.Flow
 
 interface HomePageRepositoryContract {

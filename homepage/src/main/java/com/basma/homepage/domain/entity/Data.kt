@@ -1,4 +1,4 @@
-package com.basma.homepage.data.entity
+package com.basma.homepage.domain.entity
 
 data class Data(
     val DynamicCollectionViewModel: List<DynamicCollectionViewModel>

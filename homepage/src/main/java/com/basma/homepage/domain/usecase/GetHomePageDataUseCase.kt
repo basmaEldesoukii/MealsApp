@@ -1,6 +1,6 @@
-package com.basma.homepage.data.usecase
+package com.basma.homepage.domain.usecase
 
-import com.basma.homepage.data.contract.HomePageRepositoryContract
+import com.basma.homepage.domain.contract.HomePageRepositoryContract
 
 class GetHomePageDataUseCase(
     private val repositoryContract: HomePageRepositoryContract
