@@ -1,4 +1,4 @@
-package com.basma.categories_list
+package com.basma.meals_list
 
 import org.junit.Test
 
