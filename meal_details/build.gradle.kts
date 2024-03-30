@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.basma.category_item"
+    namespace = "com.basma.meal_details"
     compileSdk = 34
 
     defaultConfig {
