@@ -9,8 +9,9 @@ import com.basma.meal_details.domain.contract.MealDetailsRepositoryContract
 import com.basma.meal_details.domain.entity.MealDetails
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class MealDetailsRepositoryImp(
+class MealDetailsRepositoryImp @Inject constructor(
     private val localDataSource: MealDetailsLocalDataSourceContract,
     private val remoteDataSource: MealDetailsRemoteDataSourceContract,
     private val mealDetailsDetailsDataMapper: Mapper<MealDetails, MealDetailsLocalEntity>
