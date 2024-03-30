@@ -8,7 +8,7 @@ import androidx.room.Query
 @Dao
 interface MealsListDao {
     @Query("select * from MealsListTable")
-    suspend fun getMealsList(): List<MealLocalEntity>
+    suspend fun getMealsList(categoryType: String): List<MealLocalEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMealsList(mealsList: List<MealLocalEntity>): List<Long>
