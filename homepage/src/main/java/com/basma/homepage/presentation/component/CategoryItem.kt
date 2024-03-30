@@ -1,7 +1,11 @@
 package com.basma.homepage.presentation.component
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -18,34 +22,34 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.basma.homepage.domain.entity.Category
 
 @Composable
-fun CategoryItem() {
+fun CategoryItem(category: Category) {
     Card(
         modifier = Modifier
-            .padding(8.dp)
-            .width(120.dp)
-            .height(120.dp),
+            .padding(4.dp)
+            .width(95.dp)
+            .height(125.dp),
         shape = RoundedCornerShape(8.dp),
+        border = BorderStroke(1.dp, Color.LightGray),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp
         )
     ) {
-        Box {
+        Column {
             AsyncImage(
-                model = "category.imageUrl",
-                contentDescription = "category.name",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+                model = category.strCategoryThumb,
+                contentDescription = category.strCategory,
+                contentScale = ContentScale.Inside,
+                modifier = Modifier.fillMaxSize().weight(0.8f)
             )
             Text(
-                text = "category.name",
+                text = category.strCategory,
                 color = Color.Black,
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 8.dp)
+                modifier = Modifier.fillMaxSize().padding(bottom = 4.dp).weight(0.2f)
             )
         }
     }

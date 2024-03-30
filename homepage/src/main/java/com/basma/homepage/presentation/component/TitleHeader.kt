@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 fun TitleHeader(title: String) {
     Text(
         text = title,
-        style = MaterialTheme.typography.titleMedium,
-        modifier = Modifier.padding(vertical = 8.dp)
+        style = MaterialTheme.typography.titleLarge,
+        modifier = Modifier.padding(vertical = 18.dp, horizontal = 8.dp)
     )
 }

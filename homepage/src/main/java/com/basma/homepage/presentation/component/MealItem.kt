@@ -1,7 +1,10 @@
 package com.basma.homepage.presentation.component
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -18,35 +21,61 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.basma.homepage.domain.entity.Meal
 
 @Composable
-fun MealItem() {
+fun MealItem(meal: Meal) {
     Card(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(4.dp)
             .width(150.dp)
             .height(200.dp),
         shape = RoundedCornerShape(8.dp),
+        border = BorderStroke(1.dp, Color.LightGray),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp
         )
     ) {
-        Box {
-            AsyncImage(
-                model = "meal.imageUrl",
-                contentDescription = "meal.name",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
-            )
-            Text(
-                text = "meal.name",
-                color = Color.White,
-                fontSize = 16.sp,
-                textAlign = TextAlign.Center,
+        Column {
+            Box(
                 modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 8.dp)
-            )
+                    .fillMaxSize()
+                    .weight(1f)
+            ) {
+                AsyncImage(
+                    model = meal.strMealThumb,
+                    contentDescription = meal.strMeal,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+            ) {
+                Text(
+                    text = meal.strMeal,
+                    color = Color.Black,
+                    fontSize = 16.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Text(
+                    text = "Category: ${meal.strCategory}",
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Text(
+                    text = "Origin: ${meal.strArea}",
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
+            }
         }
     }
 }

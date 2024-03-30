@@ -1,5 +1,6 @@
 package com.basma.homepage.domain.entity
 
+
 data class DynamicCollectionViewModel(
     val Announcements: List<Announcement>,
     val Categories: List<Category>,
@@ -8,6 +9,6 @@ data class DynamicCollectionViewModel(
     val Meals: List<Meal>,
     val Order: Int,
     val Title: String,
-    val Type: String,
+    val Type: HomePageDataType?,
     val Url: String
 )
