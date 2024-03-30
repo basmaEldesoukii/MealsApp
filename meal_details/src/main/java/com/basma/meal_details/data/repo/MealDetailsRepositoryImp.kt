@@ -6,30 +6,30 @@ import com.basma.meal_details.data.local.MealDetailsLocalDataSourceContract
 import com.basma.meal_details.data.local.MealDetailsLocalEntity
 import com.basma.meal_details.data.remote.MealDetailsRemoteDataSourceContract
 import com.basma.meal_details.domain.contract.MealDetailsRepositoryContract
-import com.basma.meal_details.domain.entity.Meal
+import com.basma.meal_details.domain.entity.MealDetails
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class MealDetailsRepositoryImp(
     private val localDataSource: MealDetailsLocalDataSourceContract,
     private val remoteDataSource: MealDetailsRemoteDataSourceContract,
-    private val mealDetailsDataMapper: Mapper<Meal, MealDetailsLocalEntity>
+    private val mealDetailsDetailsDataMapper: Mapper<MealDetails, MealDetailsLocalEntity>
 ): MealDetailsRepositoryContract {
-    override suspend fun getMealDetails(mealId: Int): Flow<Resource<Meal>> {
+    override suspend fun getMealDetails(mealId: Int): Flow<Resource<MealDetails>> {
         return flow {
             try {
                 // Get data from RemoteDataSource
                 val response = remoteDataSource.getMealDetails(mealId)
-                emit(Resource.Success(response.meals[0]))
+                emit(Resource.Success(response.mealDetails[0]))
                 // Save to local
-                localDataSource.insertMealDetails(mealDetailsDataMapper.from(response.meals[0]))
+                localDataSource.insertMealDetails(mealDetailsDetailsDataMapper.from(response.mealDetails[0]))
 
             } catch (ex: Exception) {
                 ex.printStackTrace()
                 // If remote request fails, get data from LocalDataSource
                 try {
                     val localData = localDataSource.getMealDetailsFromDataBase(mealId)
-                    emit(Resource.Success(mealDetailsDataMapper.to(localData)))
+                    emit(Resource.Success(mealDetailsDetailsDataMapper.to(localData)))
                 } catch (ex1: Exception) {
                     // Emit error
                     emit(Resource.Error(ex1))

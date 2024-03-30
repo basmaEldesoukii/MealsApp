@@ -1,6 +1,6 @@
 package com.basma.meal_details.domain.entity
 
-data class Meal(
+data class MealDetails(
     val idMeal: String,
     val strArea: String,
     val strCategory: String,

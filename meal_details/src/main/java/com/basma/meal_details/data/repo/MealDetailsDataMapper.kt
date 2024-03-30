@@ -2,12 +2,12 @@ package com.basma.meal_details.data.repo
 
 import com.basma.common.utils.Mapper
 import com.basma.meal_details.data.local.MealDetailsLocalEntity
-import com.basma.meal_details.domain.entity.Meal
+import com.basma.meal_details.domain.entity.MealDetails
 import javax.inject.Inject
 
 class MealDetailsDataMapper @Inject constructor() :
-    Mapper<Meal, MealDetailsLocalEntity> {
-    override fun from(i: Meal?): MealDetailsLocalEntity {
+    Mapper<MealDetails, MealDetailsLocalEntity> {
+    override fun from(i: MealDetails?): MealDetailsLocalEntity {
         return MealDetailsLocalEntity(
             idMeal = i?.idMeal ?: "0",
             strArea = i?.strArea ?: "",
@@ -50,8 +50,8 @@ class MealDetailsDataMapper @Inject constructor() :
         )
     }
 
-    override fun to(o: MealDetailsLocalEntity?): Meal {
-        return Meal(
+    override fun to(o: MealDetailsLocalEntity?): MealDetails {
+        return MealDetails(
             idMeal = o?.idMeal ?: "0",
             strArea = o?.strArea ?: "",
             strCategory = o?.strCategory ?: "",
