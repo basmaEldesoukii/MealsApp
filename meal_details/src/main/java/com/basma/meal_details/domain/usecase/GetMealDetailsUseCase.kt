@@ -5,5 +5,5 @@ import com.basma.meal_details.domain.contract.MealDetailsRepositoryContract
 class GetMealDetailsUseCase(
     private val repositoryContract: MealDetailsRepositoryContract
 ) {
-    suspend operator fun invoke(mealId: Int) = repositoryContract.getMealDetails(mealId)
+    suspend operator fun invoke(mealId: String) = repositoryContract.getMealDetails(mealId)
 }

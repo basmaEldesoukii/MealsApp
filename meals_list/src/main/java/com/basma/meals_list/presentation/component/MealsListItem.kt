@@ -1,5 +1,6 @@
 package com.basma.meals_list.presentation.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,11 +23,12 @@ import coil.compose.AsyncImage
 import com.basma.meals_list.domain.entity.Meal
 
 @Composable
-fun MealsListItem(meal: Meal) {
+fun MealsListItem(meal: Meal, onMealClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
+            .padding(vertical = 8.dp)
+            .clickable { onMealClick() },
         elevation = CardDefaults.cardElevation(
             defaultElevation = 4.dp
         )

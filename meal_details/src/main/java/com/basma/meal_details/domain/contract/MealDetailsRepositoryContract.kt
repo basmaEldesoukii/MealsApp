@@ -5,5 +5,5 @@ import com.basma.meal_details.domain.entity.MealDetails
 import kotlinx.coroutines.flow.Flow
 
 interface MealDetailsRepositoryContract {
-    suspend fun getMealDetails(mealId: Int): Flow<Resource<MealDetails>>
+    suspend fun getMealDetails(mealId: String): Flow<Resource<MealDetails>>
 }

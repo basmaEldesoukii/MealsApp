@@ -56,11 +56,11 @@ fun AppNavigation(
         composable(
             route = Navigation.Routes.MEAL_DETAILS,
             arguments = listOf(navArgument(name = MEAL_ID) {
-                type = NavType.IntType
+                type = NavType.StringType
             })
         ) { backStackEntry ->
             val mealID =
-                requireNotNull(backStackEntry.arguments?.getInt(MEAL_ID)) { "Meal ID is required as an argument" }
+                requireNotNull(backStackEntry.arguments?.getString(MEAL_ID)) { "Meal ID is required as an argument" }
             MealDetailsScreen(
                 navController = navController,
                 viewModel = mealDetailsViewModel,

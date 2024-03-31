@@ -3,10 +3,11 @@ package com.basma.meal_details.data.remote
 import com.basma.meal_details.domain.entity.MealDetailsDataModel
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MealDetailsRemoteServices {
-    @GET("lookup.php?i={meal_id}")
+    @GET("lookup.php")
     suspend fun getMealDetails(
-        @Path("meal_id") mealId: Int
+        @Query("s") mealId: String
     ): MealDetailsDataModel
 }

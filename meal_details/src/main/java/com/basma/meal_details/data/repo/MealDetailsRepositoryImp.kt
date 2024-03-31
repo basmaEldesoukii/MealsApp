@@ -1,5 +1,6 @@
 package com.basma.meal_details.data.repo
 
+import android.util.Log
 import com.basma.common.utils.Mapper
 import com.basma.common.utils.Resource
 import com.basma.meal_details.data.local.MealDetailsLocalDataSourceContract
@@ -16,7 +17,7 @@ class MealDetailsRepositoryImp @Inject constructor(
     private val remoteDataSource: MealDetailsRemoteDataSourceContract,
     private val mealDetailsDetailsDataMapper: Mapper<MealDetails, MealDetailsLocalEntity>
 ) : MealDetailsRepositoryContract {
-    override suspend fun getMealDetails(mealId: Int): Flow<Resource<MealDetails>> {
+    override suspend fun getMealDetails(mealId: String): Flow<Resource<MealDetails>> {
         return flow {
             try {
                 // Get data from RemoteDataSource

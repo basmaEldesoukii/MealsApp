@@ -17,10 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.basma.meal_details.domain.entity.MealDetails
 
 @Composable
-fun MealDetailsSection() {
+fun MealDetailsSection(meal:MealDetails) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -29,36 +31,29 @@ fun MealDetailsSection() {
     ) {
         item {
             AsyncImage(
-                model = "item.imageResource",
-                contentDescription = "Item Image",
+                model = meal.strMealThumb,
+                contentDescription = meal.strMeal,
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "Meal Title",
+                text = meal.strMeal,
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = "Meal Description",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Normal,
-                color = Color.Gray
             )
             Spacer(modifier = Modifier.height(16.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "Category: Your Category",
+                    text = "Category: ${meal.strCategory}",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray,
                     modifier = Modifier.weight(1f)
                 )
                 Text(
-                    text = "Origin: Meal Origin",
+                    text = "Origin: ${meal.strArea}",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray,
@@ -75,7 +70,7 @@ fun MealDetailsSection() {
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Your recipe details go here...",
+                text = meal.strInstructions,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color.Black

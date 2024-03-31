@@ -65,7 +65,7 @@ fun MealsListScreen(
                     Spacer(modifier = Modifier.height(52.dp))
                     CategoryBanner(categoryType)
                     Spacer(modifier = Modifier.height(12.dp))
-                    MealsListSection(meals = mealsList, navController)
+                    MealsListSection(meals = mealsList, navController = navController)
                 }
 
                 is MealsListContract.MealsListDataState.Error -> {

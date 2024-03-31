@@ -6,7 +6,7 @@ import com.basma.meal_details.domain.entity.MealDetails
 
 class MealDetailsContract {
     sealed class MealDetailsIntent : UiIntent {
-        data class OnFetchMealDetails(val mealID: Int) : MealDetailsIntent()
+        data class OnFetchMealDetails(val mealID: String) : MealDetailsIntent()
     }
 
     data class MealDetailsState(

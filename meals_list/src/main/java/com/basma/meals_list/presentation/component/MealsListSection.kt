@@ -14,7 +14,9 @@ fun MealsListSection(meals: List<Meal>, navController: NavController) {
         modifier = Modifier.fillMaxWidth(),
     ) {
         items(meals) { meal ->
-            MealsListItem(meal)
+            MealsListItem(meal){
+                navController.navigate(route = "meal_details/${meal.idMeal}")
+            }
         }
     }
 }
