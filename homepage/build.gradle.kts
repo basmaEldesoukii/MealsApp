@@ -95,6 +95,9 @@ dependencies {
     //Coil
     implementation("io.coil-kt:coil-compose:2.4.0")
 
+    //Image pager
+    implementation("com.google.accompanist:accompanist-pager:0.20.0")
+
     //Unit test dependencies
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
