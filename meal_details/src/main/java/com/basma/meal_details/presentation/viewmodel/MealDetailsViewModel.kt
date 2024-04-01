@@ -27,9 +27,9 @@ class MealDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun fetchMealDetails(mealID: String) {
+    private fun fetchMealDetails(mealId: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            getMealDetailsUseCase.invoke(mealID)
+            getMealDetailsUseCase.invoke(mealId)
                 .onStart { emit(Resource.Loading) }
                 .collect {
                     when (it) {
@@ -56,6 +56,8 @@ class MealDetailsViewModel @Inject constructor(
                                 )
                             }
                         }
+
+                        else -> {}
                     }
                 }
         }

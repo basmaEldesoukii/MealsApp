@@ -18,10 +18,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.basma.meal_details.domain.entity.MealDetails
+import com.basma.meal_details.domain.entity.Meal
 
 @Composable
-fun MealDetailsSection(meal: MealDetails) {
+fun MealDetailsSection(meal: Meal) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()

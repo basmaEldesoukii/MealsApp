@@ -98,12 +98,40 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideMealsListService(@Named("mealsRetrofit") retrofit: Retrofit): MealsListRemoteServices {
-        return retrofit.create(MealsListRemoteServices::class.java)
+        val modifiedClient = (retrofit.callFactory() as OkHttpClient).newBuilder()
+            .addInterceptor { chain ->
+                val originalRequest = chain.request()
+                val modifiedRequest = originalRequest.newBuilder().build()
+                val response = chain.proceed(modifiedRequest)
+                println("Request URL: ${response.request.url}")
+                response
+            }
+            .build()
+
+        val modifiedRetrofit = retrofit.newBuilder()
+            .client(modifiedClient)
+            .build()
+
+        return modifiedRetrofit.create(MealsListRemoteServices::class.java)
     }
 
     @Singleton
     @Provides
     fun provideMealDetailsService(@Named("mealsRetrofit") retrofit: Retrofit): MealDetailsRemoteServices {
-        return retrofit.create(MealDetailsRemoteServices::class.java)
+        val modifiedClient = (retrofit.callFactory() as OkHttpClient).newBuilder()
+            .addInterceptor { chain ->
+                val originalRequest = chain.request()
+                val modifiedRequest = originalRequest.newBuilder().build()
+                val response = chain.proceed(modifiedRequest)
+                println("Request URL: ${response.request.url}")
+                response
+            }
+            .build()
+
+        val modifiedRetrofit = retrofit.newBuilder()
+            .client(modifiedClient)
+            .build()
+
+        return modifiedRetrofit.create(MealDetailsRemoteServices::class.java)
     }
 }

@@ -2,12 +2,12 @@ package com.basma.meal_details.data.repo
 
 import com.basma.common.utils.Mapper
 import com.basma.meal_details.data.local.MealDetailsLocalEntity
-import com.basma.meal_details.domain.entity.MealDetails
+import com.basma.meal_details.domain.entity.Meal
 import javax.inject.Inject
 
 class MealDetailsDataMapper @Inject constructor() :
-    Mapper<MealDetails, MealDetailsLocalEntity> {
-    override fun from(i: MealDetails?): MealDetailsLocalEntity {
+    Mapper<Meal, MealDetailsLocalEntity> {
+    override fun from(i: Meal?): MealDetailsLocalEntity {
         return MealDetailsLocalEntity(
             idMeal = i?.idMeal ?: "0",
             strArea = i?.strArea ?: "",
@@ -50,8 +50,8 @@ class MealDetailsDataMapper @Inject constructor() :
         )
     }
 
-    override fun to(o: MealDetailsLocalEntity?): MealDetails {
-        return MealDetails(
+    override fun to(o: MealDetailsLocalEntity?): Meal {
+        return Meal(
             idMeal = o?.idMeal ?: "0",
             strArea = o?.strArea ?: "",
             strCategory = o?.strCategory ?: "",
@@ -89,7 +89,22 @@ class MealDetailsDataMapper @Inject constructor() :
             strMeasure8 = o?.strMeasure8 ?: "",
             strMeasure9 = o?.strMeasure9 ?: "",
             strTags = o?.strTags ?: "",
-            strYoutube = o?.strYoutube ?: ""
+            strYoutube = o?.strYoutube ?: "",
+            strCreativeCommonsConfirmed = "",
+            strDrinkAlternate = "",
+            strImageSource = "",
+            strIngredient16 = "",
+            strIngredient17 = "",
+            strIngredient18 = "",
+            strIngredient19 = "",
+            strIngredient20 = "",
+            strMeasure16 = "",
+            strMeasure17 = "",
+            strMeasure18 = "",
+            strMeasure19 = "",
+            strMeasure20 = "",
+            strSource = "",
+            dateModified = ""
         )
     }
 }

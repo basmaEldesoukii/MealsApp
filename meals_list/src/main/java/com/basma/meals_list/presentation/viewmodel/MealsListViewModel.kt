@@ -30,8 +30,6 @@ class MealsListViewModel @Inject constructor(
                 val item = intent.meal
                 setSelectedMeal(item)
             }
-
-            else -> {}
         }
     }
 

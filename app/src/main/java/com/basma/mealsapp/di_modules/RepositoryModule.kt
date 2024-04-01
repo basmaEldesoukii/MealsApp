@@ -16,7 +16,6 @@ import com.basma.meal_details.data.remote.MealDetailsRemoteDataSourceImp
 import com.basma.meal_details.data.remote.MealDetailsRemoteServices
 import com.basma.meal_details.data.repo.MealDetailsRepositoryImp
 import com.basma.meal_details.domain.contract.MealDetailsRepositoryContract
-import com.basma.meal_details.domain.entity.MealDetails
 import com.basma.meals_list.data.local.MealLocalEntity
 import com.basma.meals_list.data.local.MealsListDao
 import com.basma.meals_list.data.local.MealsListLocalDataSourceImp
@@ -110,7 +109,7 @@ class RepositoryModule {
     fun provideMealDetailsRepository(
         localDataSource: MealDetailsLocalDataSourceImp,
         remoteDataSource: MealDetailsRemoteDataSourceImp,
-        mapper: Mapper<MealDetails, MealDetailsLocalEntity>
+        mapper: Mapper<com.basma.meal_details.domain.entity.Meal, MealDetailsLocalEntity>
     ): MealDetailsRepositoryContract =
         MealDetailsRepositoryImp(
             localDataSource,

@@ -2,7 +2,7 @@ package com.basma.meal_details.presentation.viewmodel
 
 import com.basma.base.UiIntent
 import com.basma.base.UiState
-import com.basma.meal_details.domain.entity.MealDetails
+import com.basma.meal_details.domain.entity.Meal
 
 class MealDetailsContract {
     sealed class MealDetailsIntent : UiIntent {
@@ -16,7 +16,7 @@ class MealDetailsContract {
     sealed class MealDetailsDataState {
         data object Loading : MealDetailsDataState()
         data class Success(
-            val meal: MealDetails
+            val meal: Meal
         ) : MealDetailsDataState()
 
         data class Error(val errorMsg: String?) : MealDetailsDataState()

@@ -27,7 +27,7 @@ data class MealDetailsLocalEntity(
     val strInstructions: String,
     val strMeal: String,
     val strMealThumb: String,
-    val strMeasure1: String,
+   val strMeasure1: String,
     val strMeasure10: String,
     val strMeasure11: String,
     val strMeasure12: String,

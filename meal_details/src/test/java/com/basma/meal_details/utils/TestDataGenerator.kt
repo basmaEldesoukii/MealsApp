@@ -1,7 +1,7 @@
 package com.basma.meal_details.utils
 
 import com.basma.meal_details.data.local.MealDetailsLocalEntity
-import com.basma.meal_details.domain.entity.MealDetails
+import com.basma.meal_details.domain.entity.Meal
 import com.basma.meal_details.domain.entity.MealDetailsDataModel
 
 class TestDataGenerator {
@@ -17,8 +17,8 @@ class TestDataGenerator {
             )
         }
 
-        fun generateMealDetailsItem(mealId: Int): MealDetails {
-            return MealDetails(
+        fun generateMealDetailsItem(mealId: Int): Meal {
+            return Meal(
                 idMeal = mealId.toString(),
                 strArea = "Mock Area",
                 strCategory = "Mock Category",
@@ -56,7 +56,22 @@ class TestDataGenerator {
                 strMeasure8 = "8 teaspoons",
                 strMeasure9 = "9 cups",
                 strTags = "Mock, Tags, Here",
-                strYoutube = "https://www.youtube.com/watch?v=mockvideo"
+                strYoutube = "https://www.youtube.com/watch?v=mockvideo",
+                strCreativeCommonsConfirmed = "",
+                strDrinkAlternate = "",
+                strImageSource = "",
+                strIngredient16 = "",
+                strIngredient17 = "",
+                strIngredient18 = "",
+                strIngredient19 = "",
+                strIngredient20 = "",
+                strMeasure16 = "",
+                strMeasure17 = "",
+                strMeasure18 = "",
+                strMeasure19 = "",
+                strMeasure20 = "",
+                strSource = "",
+                dateModified = ""
             )
         }
         //endOfRegion
