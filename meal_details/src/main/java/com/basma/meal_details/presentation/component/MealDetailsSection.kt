@@ -100,7 +100,9 @@ fun ExpandableParagraph(
         if (!expanded && text.countLines() > maxLines) {
             Button(
                 onClick = { expanded = true },
-                modifier = Modifier.padding(top = 12.dp).align(Alignment.CenterHorizontally)
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .align(Alignment.CenterHorizontally)
             ) {
                 Text(text = "Show More")
             }

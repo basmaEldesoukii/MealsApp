@@ -16,7 +16,7 @@ fun IngredientsSection(ingredients: List<Ingredient>) {
         horizontalArrangement = Arrangement.spacedBy(2.dp)
     ) {
         items(ingredients) { ingredient ->
-            IngredientItem(ingredient)
+            IngredientItem()
         }
     }
 }
