@@ -1,4 +1,4 @@
-package com.basma.common.utils
+package com.basma.homepage.utils
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
