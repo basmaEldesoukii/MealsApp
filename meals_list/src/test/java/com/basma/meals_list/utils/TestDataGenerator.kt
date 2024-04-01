@@ -2,6 +2,7 @@ package com.basma.meals_list.utils
 
 import com.basma.meals_list.data.local.MealLocalEntity
 import com.basma.meals_list.domain.entity.Meal
+import com.basma.meals_list.domain.entity.MealsListDataModel
 
 class TestDataGenerator {
     companion object{
@@ -44,6 +45,14 @@ class TestDataGenerator {
                 idMeal = mealId.toString(),
                 strMeal = "Mock Beef",
                 strMealThumb = "https://www.example.com/beef.png"
+            )
+        }
+        //endOfRegion
+
+        // Data for UseCase Test
+        fun generateListOfRemoteMealItem(): MealsListDataModel {
+            return MealsListDataModel(
+                generateMealsList()
             )
         }
         //endOfRegion
