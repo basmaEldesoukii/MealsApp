@@ -32,7 +32,7 @@ class TestDataGenerator {
             )
         )
 
-        // Data for UseCase Test
+        // Data for UseCase Test & RemoteData Test
         fun generateHomePageData(): HomePageDataModel {
             return generateDataItem()
         }
@@ -56,6 +56,5 @@ class TestDataGenerator {
             )
         }
         //endOfRegion
-
     }
 }
