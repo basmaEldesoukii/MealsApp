@@ -46,7 +46,22 @@ class MealDetailsDataMapper @Inject constructor() :
             strMeasure8 = i?.strMeasure8 ?: "",
             strMeasure9 = i?.strMeasure9 ?: "",
             strTags = i?.strTags ?: "",
-            strYoutube = i?.strYoutube ?: ""
+            strYoutube = i?.strYoutube ?: "",
+            strCreativeCommonsConfirmed = "",
+            strDrinkAlternate = "",
+            strImageSource = "",
+            strIngredient16 = "",
+            strIngredient17 = "",
+            strIngredient18 = "",
+            strIngredient19 = "",
+            strIngredient20 = "",
+            strMeasure16 = "",
+            strMeasure17 = "",
+            strMeasure18 = "",
+            strMeasure19 = "",
+            strMeasure20 = "",
+            strSource = "",
+            dateModified = ""
         )
     }
 

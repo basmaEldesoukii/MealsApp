@@ -116,7 +116,22 @@ class TestDataGenerator {
                 strMeasure8 = "8 teaspoons",
                 strMeasure9 = "9 cups",
                 strTags = "Mock, Tags, Here",
-                strYoutube = "https://www.youtube.com/watch?v=mockvideo"
+                strYoutube = "https://www.youtube.com/watch?v=mockvideo",
+                strCreativeCommonsConfirmed = "",
+                strDrinkAlternate = "",
+                strImageSource = "",
+                strIngredient16 = "",
+                strIngredient17 = "",
+                strIngredient18 = "",
+                strIngredient19 = "",
+                strIngredient20 = "",
+                strMeasure16 = "",
+                strMeasure17 = "",
+                strMeasure18 = "",
+                strMeasure19 = "",
+                strMeasure20 = "",
+                strSource = "",
+                dateModified = ""
             )
 
         }
