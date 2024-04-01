@@ -1,5 +1,6 @@
 package com.basma.meals_list.utils
 
+import com.basma.meals_list.data.local.MealLocalEntity
 import com.basma.meals_list.domain.entity.Meal
 
 class TestDataGenerator {
@@ -22,6 +23,24 @@ class TestDataGenerator {
 
         private fun generateMealItem(mealId: Int): Meal{
             return Meal(
+                idMeal = mealId.toString(),
+                strMeal = "Mock Beef",
+                strMealThumb = "https://www.example.com/beef.png"
+            )
+        }
+        //endOfRegion
+
+        //Data for LocalData Test
+        fun generateListOfLocalMealItem(): List<MealLocalEntity> {
+            return listOf(
+                generateLocalMealItem(mealId1),
+                generateLocalMealItem(mealId2),
+                generateLocalMealItem(mealId3)
+            )
+        }
+
+        private fun generateLocalMealItem(mealId: Int): MealLocalEntity {
+            return MealLocalEntity(
                 idMeal = mealId.toString(),
                 strMeal = "Mock Beef",
                 strMealThumb = "https://www.example.com/beef.png"
