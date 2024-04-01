@@ -5,6 +5,15 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="testHomePageErrorState()">
+        <State />
+      </entry>
+      <entry key="testHomePageLoadingState()">
+        <State />
+      </entry>
+      <entry key="testHomePageSuccessState()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
