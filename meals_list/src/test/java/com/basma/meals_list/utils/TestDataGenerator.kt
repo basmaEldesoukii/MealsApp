@@ -8,7 +8,7 @@ class TestDataGenerator {
     companion object{
 
         const val categoryType = "Beef"
-        private const val mealId1 = 1
+        const val mealId1 = 1
         private const val mealId2 = 2
         private const val mealId3 = 3
 
@@ -22,7 +22,7 @@ class TestDataGenerator {
             )
         }
 
-        private fun generateMealItem(mealId: Int): Meal{
+        fun generateMealItem(mealId: Int): Meal{
             return Meal(
                 idMeal = mealId.toString(),
                 strMeal = "Mock Beef",
