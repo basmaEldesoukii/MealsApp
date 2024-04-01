@@ -108,4 +108,8 @@ dependencies {
     testImplementation("androidx.test:runner:1.5.2")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("app.cash.turbine:turbine:0.5.2")
+
+    //Ui test dependencies
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$1.8.2")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$1.8.2")
 }
