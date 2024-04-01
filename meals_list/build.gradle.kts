@@ -103,13 +103,14 @@ dependencies {
     testImplementation("org.mockito:mockito-core:4.5.1")
     testImplementation("org.mockito:mockito-android:4.5.1")
     testImplementation("org.robolectric:robolectric:4.8")
-    testImplementation("io.mockk:mockk:1.12.7")
+    testImplementation("io.mockk:mockk:1.12.5")
     testImplementation("org.json:json:20220320")
     testImplementation("androidx.test:runner:1.5.2")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("app.cash.turbine:turbine:0.5.2")
 
     //Ui test dependencies
+    androidTestImplementation("io.mockk:mockk-android:1.12.5")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$1.8.2")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$1.8.2")
 }
