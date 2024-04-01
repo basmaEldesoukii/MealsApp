@@ -28,18 +28,28 @@ class MealDetailsScreenUiTest {
     @Test
     fun testMealDetailsLoadingState() {
         coEvery {
-            viewModel.setIntent(MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(TestDataGenerator.mealId1.toString())) } answers {
+            viewModel.setIntent(
+                MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(
+                    TestDataGenerator.mealId1.toString()
+                )
+            )
+        } answers {
             val currentState = MealDetailsContract.MealDetailsState(
                 mealDetailsState = MealDetailsContract.MealDetailsDataState.Loading
             )
-            val stateFlow: MutableStateFlow<MealDetailsContract.MealDetailsState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<MealDetailsContract.MealDetailsState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             every { viewModel.uiState } returns stateFlow.asStateFlow()
         }
 
         // Launch the Composable
         composeTestRule.setContent {
-            MealDetailsScreen(navController = mockk(), viewModel = viewModel, mealId = TestDataGenerator.mealId1.toString())
+            MealDetailsScreen(
+                navController = mockk(),
+                viewModel = viewModel,
+                mealId = TestDataGenerator.mealId1.toString()
+            )
         }
 
         // Verify that ProgressComponent is displayed
@@ -51,18 +61,28 @@ class MealDetailsScreenUiTest {
     @Test
     fun testMealDetailsSuccessState() {
         coEvery {
-            viewModel.setIntent(MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(TestDataGenerator.mealId1.toString())) } answers {
+            viewModel.setIntent(
+                MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(
+                    TestDataGenerator.mealId1.toString()
+                )
+            )
+        } answers {
             val currentState = MealDetailsContract.MealDetailsState(
                 mealDetailsState = MealDetailsContract.MealDetailsDataState.Success(mealDetailsMock)
             )
-            val stateFlow: MutableStateFlow<MealDetailsContract.MealDetailsState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<MealDetailsContract.MealDetailsState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             coEvery { viewModel.uiState } returns stateFlow.asStateFlow()
         }
 
         // Launch the Composable
         composeTestRule.setContent {
-            MealDetailsScreen(navController = mockk(), viewModel = viewModel, mealId = TestDataGenerator.mealId1.toString())
+            MealDetailsScreen(
+                navController = mockk(),
+                viewModel = viewModel,
+                mealId = TestDataGenerator.mealId1.toString()
+            )
         }
 
         composeTestRule.onNodeWithText("Mock Meal").assertIsDisplayed()
@@ -73,18 +93,28 @@ class MealDetailsScreenUiTest {
         val errorMsg = "Failed to load data"
 
         coEvery {
-            viewModel.setIntent(MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(TestDataGenerator.mealId1.toString())) } answers {
+            viewModel.setIntent(
+                MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(
+                    TestDataGenerator.mealId1.toString()
+                )
+            )
+        } answers {
             val currentState = MealDetailsContract.MealDetailsState(
                 mealDetailsState = MealDetailsContract.MealDetailsDataState.Error(errorMsg)
             )
-            val stateFlow: MutableStateFlow<MealDetailsContract.MealDetailsState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<MealDetailsContract.MealDetailsState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             coEvery { viewModel.uiState } returns stateFlow.asStateFlow()
         }
 
         // Launch the Composable
         composeTestRule.setContent {
-            MealDetailsScreen(navController = mockk(), viewModel = viewModel, TestDataGenerator.mealId1.toString())
+            MealDetailsScreen(
+                navController = mockk(),
+                viewModel = viewModel,
+                TestDataGenerator.mealId1.toString()
+            )
         }
 
         // Verify that ErrorComponent is displayed with the error message

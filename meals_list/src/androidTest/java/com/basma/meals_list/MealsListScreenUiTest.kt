@@ -34,18 +34,28 @@ class MealsListScreenUiTest {
     @Test
     fun testMealsListLoadingState() {
         coEvery {
-            viewModel.setIntent(MealsListContract.MealsListIntent.OnFetchMealsListData(TestDataGenerator.categoryType)) } answers {
+            viewModel.setIntent(
+                MealsListContract.MealsListIntent.OnFetchMealsListData(
+                    TestDataGenerator.categoryType
+                )
+            )
+        } answers {
             val currentState = MealsListContract.MealsListState(
                 mealsListState = MealsListContract.MealsListDataState.Loading
             )
-            val stateFlow: MutableStateFlow<MealsListContract.MealsListState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<MealsListContract.MealsListState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             every { viewModel.uiState } returns stateFlow.asStateFlow()
         }
 
         // Launch the Composable
         composeTestRule.setContent {
-            MealsListScreen(navController = mockk(), viewModel = viewModel, categoryType = TestDataGenerator.categoryType)
+            MealsListScreen(
+                navController = mockk(),
+                viewModel = viewModel,
+                categoryType = TestDataGenerator.categoryType
+            )
         }
 
         // Verify that ProgressComponent is displayed
@@ -57,18 +67,28 @@ class MealsListScreenUiTest {
     @Test
     fun testMealsListSuccessState() {
         coEvery {
-            viewModel.setIntent(MealsListContract.MealsListIntent.OnFetchMealsListData(TestDataGenerator.categoryType)) } answers {
-            val currentState = MealsListContract.MealsListState(
-                mealsListState = MealsListContract.MealsListDataState.Success(TestDataGenerator.mealsListMock)
+            viewModel.setIntent(
+                MealsListContract.MealsListIntent.OnFetchMealsListData(
+                    TestDataGenerator.categoryType
+                )
             )
-            val stateFlow: MutableStateFlow<MealsListContract.MealsListState> = MutableStateFlow(currentState)
+        } answers {
+            val currentState = MealsListContract.MealsListState(
+                mealsListState = MealsListContract.MealsListDataState.Success(mealsListMock)
+            )
+            val stateFlow: MutableStateFlow<MealsListContract.MealsListState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             coEvery { viewModel.uiState } returns stateFlow.asStateFlow()
         }
 
         // Launch the Composable
         composeTestRule.setContent {
-            MealsListScreen(navController = mockk(), viewModel = viewModel, categoryType = TestDataGenerator.categoryType)
+            MealsListScreen(
+                navController = mockk(),
+                viewModel = viewModel,
+                categoryType = TestDataGenerator.categoryType
+            )
         }
 
         composeTestRule.onAllNodesWithText("Mock Beef").assertCountEquals(mealsListMock.size)
@@ -79,18 +99,28 @@ class MealsListScreenUiTest {
         val errorMsg = "Failed to load data"
 
         coEvery {
-            viewModel.setIntent(MealsListContract.MealsListIntent.OnFetchMealsListData(TestDataGenerator.categoryType)) } answers {
+            viewModel.setIntent(
+                MealsListContract.MealsListIntent.OnFetchMealsListData(
+                    TestDataGenerator.categoryType
+                )
+            )
+        } answers {
             val currentState = MealsListContract.MealsListState(
                 mealsListState = MealsListContract.MealsListDataState.Error(errorMsg)
             )
-            val stateFlow: MutableStateFlow<MealsListContract.MealsListState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<MealsListContract.MealsListState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             coEvery { viewModel.uiState } returns stateFlow.asStateFlow()
         }
 
         // Launch the Composable
         composeTestRule.setContent {
-            MealsListScreen(navController = mockk(), viewModel = viewModel, categoryType = TestDataGenerator.categoryType)
+            MealsListScreen(
+                navController = mockk(),
+                viewModel = viewModel,
+                categoryType = TestDataGenerator.categoryType
+            )
         }
 
         // Verify that ErrorComponent is displayed with the error message

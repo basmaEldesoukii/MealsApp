@@ -5,13 +5,13 @@
       <entry key="app">
         <State />
       </entry>
-      <entry key="testHomePageErrorState() (1)">
-        <State />
-      </entry>
       <entry key="testHomePageSuccessState() (1)">
         <State />
       </entry>
       <entry key="testMealDetailsLoadingState()">
+        <State />
+      </entry>
+      <entry key="testMealDetailsSuccessState()">
         <State />
       </entry>
       <entry key="testMealsListErrorState()">

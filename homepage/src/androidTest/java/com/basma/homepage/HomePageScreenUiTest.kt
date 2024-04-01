@@ -31,11 +31,13 @@ class HomePageScreenUiTest {
     @Test
     fun testHomePageLoadingState() {
         coEvery {
-            viewModel.setIntent(HomePageContract.HomePageIntent.OnFetchHomePageData) } answers {
-                val currentState = HomePageContract.HomePageState(
+            viewModel.setIntent(HomePageContract.HomePageIntent.OnFetchHomePageData)
+        } answers {
+            val currentState = HomePageContract.HomePageState(
                 homePageDataState = HomePageContract.HomePageDataState.Loading
             )
-            val stateFlow: MutableStateFlow<HomePageContract.HomePageState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<HomePageContract.HomePageState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             every { viewModel.uiState } returns stateFlow.asStateFlow()
         }
@@ -54,11 +56,13 @@ class HomePageScreenUiTest {
     @Test
     fun testHomePageSuccessState() {
         coEvery {
-            viewModel.setIntent(HomePageContract.HomePageIntent.OnFetchHomePageData) } answers {
-                val currentState = HomePageContract.HomePageState(
+            viewModel.setIntent(HomePageContract.HomePageIntent.OnFetchHomePageData)
+        } answers {
+            val currentState = HomePageContract.HomePageState(
                 homePageDataState = HomePageContract.HomePageDataState.Success(TestDataGenerator.dataMock)
             )
-            val stateFlow: MutableStateFlow<HomePageContract.HomePageState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<HomePageContract.HomePageState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             coEvery { viewModel.uiState } returns stateFlow.asStateFlow()
         }
@@ -73,14 +77,16 @@ class HomePageScreenUiTest {
 
     @Test
     fun testHomePageErrorState() {
-         val errorMsg = "Failed to load data"
+        val errorMsg = "Failed to load data"
 
         coEvery {
-            viewModel.setIntent(HomePageContract.HomePageIntent.OnFetchHomePageData) } answers {
-                val currentState = HomePageContract.HomePageState(
+            viewModel.setIntent(HomePageContract.HomePageIntent.OnFetchHomePageData)
+        } answers {
+            val currentState = HomePageContract.HomePageState(
                 homePageDataState = HomePageContract.HomePageDataState.Error(errorMsg)
             )
-            val stateFlow: MutableStateFlow<HomePageContract.HomePageState> = MutableStateFlow(currentState)
+            val stateFlow: MutableStateFlow<HomePageContract.HomePageState> =
+                MutableStateFlow(currentState)
             // Stub the behavior of the ViewModel
             coEvery { viewModel.uiState } returns stateFlow.asStateFlow()
         }
