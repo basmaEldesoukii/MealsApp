@@ -8,13 +8,13 @@
       <entry key="testHomePageErrorState() (1)">
         <State />
       </entry>
-      <entry key="testHomePageLoadingState() (1)">
-        <State />
-      </entry>
-      <entry key="testHomePageSuccessState()">
-        <State />
-      </entry>
       <entry key="testHomePageSuccessState() (1)">
+        <State />
+      </entry>
+      <entry key="testMealDetailsLoadingState()">
+        <State />
+      </entry>
+      <entry key="testMealsListErrorState()">
         <State />
       </entry>
       <entry key="testMealsListSuccessState()">
