@@ -23,7 +23,6 @@ The app consists of the following screens:
 - **Coil**: An image loading library for Android backed by Kotlin Coroutines.
 - **Unit Testing**: Ensures code quality and app reliability.
 - **Jetpack UI Testing**: Automated UI testing framework for Android.
-- **Jetpack Compose UI Test**: UI testing library specifically for Jetpack Compose.
 
 ## Code Coverage
 - **Kotlin 100% Coverage**: Aim for 100% test coverage of Kotlin code to ensure comprehensive testing and reliability.
