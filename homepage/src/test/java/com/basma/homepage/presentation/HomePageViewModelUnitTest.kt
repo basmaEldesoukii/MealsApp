@@ -2,11 +2,11 @@ package com.basma.homepage.presentation
 
 import androidx.test.filters.SmallTest
 import app.cash.turbine.test
-import com.basma.homepage.utils.MainCoroutineRule
 import com.basma.common.utils.Resource
 import com.basma.homepage.domain.usecase.GetHomePageDataUseCase
 import com.basma.homepage.presentation.viewmodel.HomePageContract
 import com.basma.homepage.presentation.viewmodel.HomePageViewModel
+import com.basma.homepage.utils.MainCoroutineRule
 import com.basma.homepage.utils.TestDataGenerator
 import com.google.common.truth.Truth
 import io.mockk.MockKAnnotations
@@ -61,7 +61,8 @@ class HomePageViewModelUnitTest {
             )
             // Expect Resource.Success
             val expected = expectItem()
-            val expectedData = (expected.homePageDataState as HomePageContract.HomePageDataState.Success).data
+            val expectedData =
+                (expected.homePageDataState as HomePageContract.HomePageDataState.Success).data
             Truth.assertThat(expected).isEqualTo(
                 HomePageContract.HomePageState(
                     homePageDataState = HomePageContract.HomePageDataState.Success(homePageData.Data)
@@ -97,7 +98,8 @@ class HomePageViewModelUnitTest {
 
             // Expect Resource.Success
             val expected = expectItem()
-            val expectedData = (expected.homePageDataState as HomePageContract.HomePageDataState.Error).errorMsg
+            val expectedData =
+                (expected.homePageDataState as HomePageContract.HomePageDataState.Error).errorMsg
             Truth.assertThat(expected).isEqualTo(
                 HomePageContract.HomePageState(
                     homePageDataState = HomePageContract.HomePageDataState.Error("error")

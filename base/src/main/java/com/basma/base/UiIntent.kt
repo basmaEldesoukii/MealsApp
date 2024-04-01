@@ -1,4 +1,3 @@
 package com.basma.base
 
-interface UiIntent {
-}
+interface UiIntent

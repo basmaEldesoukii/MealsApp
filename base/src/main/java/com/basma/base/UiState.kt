@@ -1,4 +1,3 @@
 package com.basma.base
 
-interface UiState {
-}
+interface UiState

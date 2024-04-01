@@ -52,7 +52,11 @@ class MealDetailsViewModelUnitTest {
 
         // When && Assertions
         mealsListViewModel.uiState.test {
-            mealsListViewModel.setIntent(MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(TestDataGenerator.mealId1.toString()))
+            mealsListViewModel.setIntent(
+                MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(
+                    TestDataGenerator.mealId1.toString()
+                )
+            )
             // Expect Resource.Loading from initial state
             Truth.assertThat(expectItem()).isEqualTo(
                 MealDetailsContract.MealDetailsState(
@@ -61,7 +65,8 @@ class MealDetailsViewModelUnitTest {
             )
             // Expect Resource.Success
             val expected = expectItem()
-            val expectedData = (expected.mealDetailsState as MealDetailsContract.MealDetailsDataState.Success).meal
+            val expectedData =
+                (expected.mealDetailsState as MealDetailsContract.MealDetailsDataState.Success).meal
             Truth.assertThat(expected).isEqualTo(
                 MealDetailsContract.MealDetailsState(
                     mealDetailsState = MealDetailsContract.MealDetailsDataState.Success(mealDetails)
@@ -87,7 +92,11 @@ class MealDetailsViewModelUnitTest {
         // When && Assertions (UiState)
         mealsListViewModel.uiState.test {
             // Call method inside of this scope
-            mealsListViewModel.setIntent(MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(TestDataGenerator.mealId1.toString()))
+            mealsListViewModel.setIntent(
+                MealDetailsContract.MealDetailsIntent.OnFetchMealDetails(
+                    TestDataGenerator.mealId1.toString()
+                )
+            )
             // Expect Resource.Loading from initial state
             Truth.assertThat(expectItem()).isEqualTo(
                 MealDetailsContract.MealDetailsState(
@@ -97,7 +106,8 @@ class MealDetailsViewModelUnitTest {
 
             // Expect Resource.Success
             val expected = expectItem()
-            val expectedData = (expected.mealDetailsState as MealDetailsContract.MealDetailsDataState.Error).errorMsg
+            val expectedData =
+                (expected.mealDetailsState as MealDetailsContract.MealDetailsDataState.Error).errorMsg
             Truth.assertThat(expected).isEqualTo(
                 MealDetailsContract.MealDetailsState(
                     mealDetailsState = MealDetailsContract.MealDetailsDataState.Error("error")

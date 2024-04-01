@@ -1,6 +1,5 @@
 package com.basma.meal_details.data.repo
 
-import android.util.Log
 import com.basma.common.utils.Mapper
 import com.basma.common.utils.Resource
 import com.basma.meal_details.data.local.MealDetailsLocalDataSourceContract

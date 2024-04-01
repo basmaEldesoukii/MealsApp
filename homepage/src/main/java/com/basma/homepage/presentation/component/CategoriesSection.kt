@@ -17,7 +17,7 @@ fun CategoriesSection(categories: List<Category>, navController: NavController) 
         horizontalArrangement = Arrangement.spacedBy(2.dp)
     ) {
         items(categories) { category ->
-            CategoryItem(category = category){
+            CategoryItem(category = category) {
                 navController.navigate(route = "meals_list/${category.strCategory}")
             }
         }

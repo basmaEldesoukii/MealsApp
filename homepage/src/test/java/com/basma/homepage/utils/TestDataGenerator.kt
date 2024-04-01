@@ -8,7 +8,7 @@ import com.basma.homepage.domain.entity.HomePageDataModel
 import com.basma.homepage.domain.entity.HomePageDataType
 
 class TestDataGenerator {
-    companion object{
+    companion object {
         val dataMock = Data(
             DynamicCollectionViewModel = listOf(
                 DynamicCollectionViewModel(

@@ -13,7 +13,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.lang.Exception
 
 @ExperimentalCoroutinesApi
 @SmallTest
@@ -24,7 +23,7 @@ class HomePageRemoteDataSourceImpUnitTest {
     private lateinit var remoteDataSource: HomePageRemoteDataSourceImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         // Create RemoteDataSourceImp before every test
         remoteDataSource = HomePageRemoteDataSourceImp(
@@ -33,7 +32,7 @@ class HomePageRemoteDataSourceImpUnitTest {
     }
 
     @Test
-    fun test_get_homepage_data_success() = runTest   {
+    fun test_get_homepage_data_success() = runTest {
         val homePageResponse = TestDataGenerator.generateHomePageData()
 
         // Given

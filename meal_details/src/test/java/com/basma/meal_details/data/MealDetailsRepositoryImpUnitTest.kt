@@ -35,7 +35,7 @@ class MealDetailsRepositoryImpUnitTest {
     private lateinit var repository: MealDetailsRepositoryImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         // Create RepositoryImp before every test
         repository = MealDetailsRepositoryImp(
@@ -46,14 +46,22 @@ class MealDetailsRepositoryImpUnitTest {
     }
 
     @Test
-    fun test_get_meal_details_from_remote_success() = runTest{
+    fun test_get_meal_details_from_remote_success() = runTest {
         val mealDetailsRemote = TestDataGenerator.generateListOfMealDetailsItem()
         val affectedIds = 1L
 
         // Given
         coEvery { remoteDataSourceContract.getMealDetails(TestDataGenerator.mealId1.toString()) } returns mealDetailsRemote
-        coEvery { localDataSourceContract.insertMealDetails(mealDetailsDataMapper.from(mealDetailsRemote.mealDetails[0])) } returns affectedIds
-        coEvery { localDataSourceContract.getMealDetailsFromDataBase(TestDataGenerator.mealId1.toString()) } returns mealDetailsDataMapper.from(mealDetailsRemote.mealDetails[0])
+        coEvery {
+            localDataSourceContract.insertMealDetails(
+                mealDetailsDataMapper.from(
+                    mealDetailsRemote.mealDetails[0]
+                )
+            )
+        } returns affectedIds
+        coEvery { localDataSourceContract.getMealDetailsFromDataBase(TestDataGenerator.mealId1.toString()) } returns mealDetailsDataMapper.from(
+            mealDetailsRemote.mealDetails[0]
+        )
 
         // When & Assertions
         val flow = repository.getMealDetails(TestDataGenerator.mealId1.toString())
@@ -68,7 +76,13 @@ class MealDetailsRepositoryImpUnitTest {
 
         // Then
         coVerify { remoteDataSourceContract.getMealDetails(TestDataGenerator.mealId1.toString()) }
-        coVerify { localDataSourceContract.insertMealDetails(mealDetailsDataMapper.from(mealDetailsRemote.mealDetails[0])) }
+        coVerify {
+            localDataSourceContract.insertMealDetails(
+                mealDetailsDataMapper.from(
+                    mealDetailsRemote.mealDetails[0]
+                )
+            )
+        }
     }
 
     @Test
@@ -77,7 +91,9 @@ class MealDetailsRepositoryImpUnitTest {
 
         // Given
         coEvery { remoteDataSourceContract.getMealDetails(TestDataGenerator.mealId1.toString()) } throws Exception()
-        coEvery { localDataSourceContract.getMealDetailsFromDataBase(TestDataGenerator.mealId1.toString()) } returns mealDetailsDataMapper.from(mealDetails)
+        coEvery { localDataSourceContract.getMealDetailsFromDataBase(TestDataGenerator.mealId1.toString()) } returns mealDetailsDataMapper.from(
+            mealDetails
+        )
 
         // When && Assertions
         val flow = repository.getMealDetails(TestDataGenerator.mealId1.toString())

@@ -30,7 +30,7 @@ class MealsListUseCaseUnitTest {
 
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         getMealsListUseCase = GetMealsListUseCase(
             repositoryContract = repository,
@@ -38,7 +38,7 @@ class MealsListUseCaseUnitTest {
     }
 
     @Test
-    fun test_get_meals_list_success() = runTest{
+    fun test_get_meals_list_success() = runTest {
         val meals = TestDataGenerator.generateMealsList()
         val mealsFlow = flowOf(Resource.Success(meals))
 
@@ -61,7 +61,7 @@ class MealsListUseCaseUnitTest {
     }
 
     @Test
-    fun test_get_meals_list_fail() = runTest{
+    fun test_get_meals_list_fail() = runTest {
 
         val errorFlow = flowOf(Resource.Error(Exception()))
 

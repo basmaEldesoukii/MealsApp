@@ -5,7 +5,7 @@ import com.basma.meals_list.domain.entity.Meal
 import com.basma.meals_list.domain.entity.MealsListDataModel
 
 class TestDataGenerator {
-    companion object{
+    companion object {
 
         const val categoryType = "Beef"
         const val mealId1 = 1
@@ -22,7 +22,7 @@ class TestDataGenerator {
             )
         }
 
-        fun generateMealItem(mealId: Int): Meal{
+        fun generateMealItem(mealId: Int): Meal {
             return Meal(
                 idMeal = mealId.toString(),
                 strMeal = "Mock Beef",

@@ -13,7 +13,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.lang.Exception
 
 @ExperimentalCoroutinesApi
 @SmallTest
@@ -24,7 +23,7 @@ class MealsListLocalDataSourceImpUnitTest {
     private lateinit var localDataSourceImp: MealsListLocalDataSourceImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
         localDataSourceImp = MealsListLocalDataSourceImp(
             mealsListDao = mealsListDao
@@ -66,7 +65,7 @@ class MealsListLocalDataSourceImpUnitTest {
         val expected = MutableList(localMeals.size) { index -> index.toLong() }
 
         // Given
-        coEvery { mealsListDao.insertMealsList(any())} returns expected
+        coEvery { mealsListDao.insertMealsList(any()) } returns expected
 
         // When
         val returned = localDataSourceImp.insertMealsList(localMeals)

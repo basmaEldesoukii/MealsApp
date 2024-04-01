@@ -28,7 +28,10 @@ fun HomePageContent(data: Data, navController: NavController) {
                 HomePageDataType.Category -> {
                     item {
                         TitleHeader(title = dataItem.Title)
-                        CategoriesSection(categories = dataItem.Categories, navController = navController)
+                        CategoriesSection(
+                            categories = dataItem.Categories,
+                            navController = navController
+                        )
                     }
                 }
 

@@ -30,7 +30,7 @@ class GetHomePageDataUseCaseUnitTest {
 
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         getHomePageDataUseCase = GetHomePageDataUseCase(
             repositoryContract = repository,
@@ -61,7 +61,7 @@ class GetHomePageDataUseCaseUnitTest {
     }
 
     @Test
-    fun test_get_homepage_data_fail() = runTest{
+    fun test_get_homepage_data_fail() = runTest {
 
         val errorFlow = flowOf(Resource.Error(Exception()))
 

@@ -13,7 +13,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.lang.Exception
 
 @ExperimentalCoroutinesApi
 @SmallTest
@@ -24,7 +23,7 @@ class HomePageLocalDataSourceImpUnitTest {
     private lateinit var localDataSourceImp: HomePageLocalDataSourceImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
         localDataSourceImp = HomePageLocalDataSourceImp(
             homePageDao = homePageDao

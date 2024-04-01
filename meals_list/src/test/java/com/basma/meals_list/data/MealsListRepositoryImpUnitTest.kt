@@ -35,7 +35,7 @@ class MealsListRepositoryImpUnitTest {
     private lateinit var repository: MealsListRepositoryImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         // Create RepositoryImp before every test
         repository = MealsListRepositoryImp(
@@ -46,7 +46,7 @@ class MealsListRepositoryImpUnitTest {
     }
 
     @Test
-    fun test_get_meals_from_remote_success() = runTest{
+    fun test_get_meals_from_remote_success() = runTest {
         val meals = TestDataGenerator.generateMealsList()
         val remoteMeals = TestDataGenerator.generateListOfRemoteMealItem()
         val affectedIds = MutableList(meals.size) { index -> index.toLong() }
@@ -54,7 +54,9 @@ class MealsListRepositoryImpUnitTest {
         // Given
         coEvery { remoteDataSourceContract.getMealsList(TestDataGenerator.categoryType) } returns remoteMeals
         coEvery { localDataSourceContract.insertMealsList(mealsListDataMapper.fromList(meals)) } returns affectedIds
-        coEvery { localDataSourceContract.getMealsListFromDataBase() } returns mealsListDataMapper.fromList(meals)
+        coEvery { localDataSourceContract.getMealsListFromDataBase() } returns mealsListDataMapper.fromList(
+            meals
+        )
 
         // When & Assertions
         val flow = repository.getMealsList(TestDataGenerator.categoryType)
@@ -78,7 +80,9 @@ class MealsListRepositoryImpUnitTest {
 
         // Given
         coEvery { remoteDataSourceContract.getMealsList(TestDataGenerator.categoryType) } throws Exception()
-        coEvery { localDataSourceContract.getMealsListFromDataBase() } returns mealsListDataMapper.fromList(meals)
+        coEvery { localDataSourceContract.getMealsListFromDataBase() } returns mealsListDataMapper.fromList(
+            meals
+        )
 
         // When && Assertions
         val flow = repository.getMealsList(TestDataGenerator.categoryType)

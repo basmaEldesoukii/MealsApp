@@ -13,7 +13,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import java.lang.Exception
 
 @ExperimentalCoroutinesApi
 @SmallTest
@@ -24,7 +23,7 @@ class MealsListRemoteDataSourceImpUnitTest {
     private lateinit var remoteDataSource: MealsListRemoteDataSourceImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         // Create RemoteDataSourceImp before every test
         remoteDataSource = MealsListRemoteDataSourceImp(

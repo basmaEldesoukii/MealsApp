@@ -34,7 +34,7 @@ class HomePageRepositoryImpUnitTest {
     private lateinit var repository: HomePageRepositoryImp
 
     @Before
-    fun setup(){
+    fun setup() {
         MockKAnnotations.init(this, relaxUnitFun = true) // turn relaxUnitFun on for all mocks
         // Create RepositoryImp before every test
         repository = HomePageRepositoryImp(
@@ -45,14 +45,22 @@ class HomePageRepositoryImpUnitTest {
     }
 
     @Test
-    fun test_get_homepage_data_from_remote_success() = runTest{
+    fun test_get_homepage_data_from_remote_success() = runTest {
         val homepageData = TestDataGenerator.generateHomePageData()
         val affectedIds = 1L
 
         // Given
         coEvery { remoteDataSourceContract.getHomePageData() } returns homepageData
-        coEvery { localDataSourceContract.insertHomePageDataList(homePageDataMapper.from(homepageData)) } returns affectedIds
-        coEvery { localDataSourceContract.getHomePageDataFromDataBase() } returns homePageDataMapper.from(homepageData)
+        coEvery {
+            localDataSourceContract.insertHomePageDataList(
+                homePageDataMapper.from(
+                    homepageData
+                )
+            )
+        } returns affectedIds
+        coEvery { localDataSourceContract.getHomePageDataFromDataBase() } returns homePageDataMapper.from(
+            homepageData
+        )
 
         // When & Assertions
         val flow = repository.getHomePageData()
@@ -67,7 +75,13 @@ class HomePageRepositoryImpUnitTest {
 
         // Then
         coVerify { remoteDataSourceContract.getHomePageData() }
-        coVerify { localDataSourceContract.insertHomePageDataList(homePageDataMapper.from(homepageData)) }
+        coVerify {
+            localDataSourceContract.insertHomePageDataList(
+                homePageDataMapper.from(
+                    homepageData
+                )
+            )
+        }
     }
 
     @Test
@@ -76,7 +90,9 @@ class HomePageRepositoryImpUnitTest {
 
         // Given
         coEvery { remoteDataSourceContract.getHomePageData() } throws Exception()
-        coEvery { localDataSourceContract.getHomePageDataFromDataBase() } returns homePageDataMapper.from(homepageData)
+        coEvery { localDataSourceContract.getHomePageDataFromDataBase() } returns homePageDataMapper.from(
+            homepageData
+        )
 
         // When && Assertions
         val flow = repository.getHomePageData()
