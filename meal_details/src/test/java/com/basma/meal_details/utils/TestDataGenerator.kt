@@ -5,18 +5,14 @@ import com.basma.meal_details.domain.entity.MealDetails
 import com.basma.meal_details.domain.entity.MealDetailsDataModel
 
 class TestDataGenerator {
-    companion object{
+    companion object {
         const val mealId1 = 1
-        private const val mealId2 = 2
-        private const val mealId3 = 3
 
-        // Data for UseCase Test
+        // Data for UseCase Test & RemoteData Test
         fun generateListOfMealDetailsItem(): MealDetailsDataModel {
             return MealDetailsDataModel(
                 listOf(
-                    generateMealDetailsItem(mealId1),
-                    generateMealDetailsItem(mealId2),
-                    generateMealDetailsItem(mealId3)
+                    generateMealDetailsItem(mealId1)
                 )
             )
         }
