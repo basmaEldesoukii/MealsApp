@@ -60,3 +60,10 @@ Here are the main libraries used in this project:
 - Room Database: [Link to Room Database documentation](https://developer.android.com/training/data-storage/room)
 - Coil: [Link to Coil documentation](https://coil-kt.github.io/coil/)
 - JUnit (for unit testing): [Link to JUnit documentation](https://junit.org/junit4/)
+
+## Screenshots
+![Screenshot_home1](https://github.com/basmaEldesouky/MealsApp/assets/41978905/f19723b6-27d8-4052-8f15-4321ac6dedb0)
+![Screenshot_home2](https://github.com/basmaEldesouky/MealsApp/assets/41978905/d7cd71ba-947b-490c-a32a-bcab362e117f)
+![Screenshot_category_list](https://github.com/basmaEldesouky/MealsApp/assets/41978905/90a0cec0-daaa-41c9-a8be-72e4461b4222)
+![Screenshot_meal_details](https://github.com/basmaEldesouky/MealsApp/assets/41978905/a67e8fae-8513-4025-8bf6-811c7a49ba5f)
+  
